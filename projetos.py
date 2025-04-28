@@ -166,4 +166,6 @@ def desenha_ceu(): #desenha um ceu estrelado com estrelas de tamanhos aleatorias
 desenha_ceu()
 
 
+#---------------- Questao 06 ---------------
+
 
