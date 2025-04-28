@@ -125,6 +125,44 @@ def dados():
 
 dados() 
 
+#----------------- Questão 05 ----------------
+'''    '''
+import turtle as t
+import random 
+
+def estrela(lado, cor='blue'):
+    '''Desenha uma estrela de 5 pontas sem usar for'''
+    t.color(cor)
+    passos = 0
+    while passos < 5:
+        t.forward(lado)
+        t.right(216)
+        passos += 1
+
+def desenha_ceu():
+    t.speed('fastest') 
+    t.bgcolor('black')
+    
+    contador = 0
+    while contador < 50:
+        x = random.randint(-300, 300)
+        y = random.randint(-200, 200)
+        
+        t.penup()
+        t.goto(x, y)
+        t.pendown()
+        
+        tamanho = random.randint(10, 40)
+        estrela(tamanho, 'blue')
+        
+        t.penup()  # <<<<<<<<<< ADICIONEI AQUI, levantar a caneta depois de desenhar
+        
+        contador += 1
+
+    t.done()
+
+# Chama a função para desenhar o céu
+desenha_ceu()
 
 
 
