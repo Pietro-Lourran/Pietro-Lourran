@@ -93,11 +93,38 @@ def calculo_de_ir (renda):
 
     return imposto_tot, ali_efetiva
 
-# Programa principal
 renda = float(input("Digite a renda mensal em R$: "))
-
+# Função p/ calcular
 imposto_tot, aliquota = calculo_de_ir (renda)
 
 print(f"Imposto devido: R$ {imposto_tot:.2f}")
 print(f"Alíquota efetiva: {aliquota:.2f}%")
+
+#--------------- Questão 04 -----------------
+
+''' Conta quantas vezes os dados foram lançados ate sairem o mesmo número'''
+
+
+import random
+
+def dados():
+    cont = 0  # Começa a contagem de vezes que o dado foi jogado
+
+
+    while True:  # Cria um laço que que vai rodar infinitamente
+        dado_a = random.randint(1, 6) # Sorteia um número de 1 a 6 para o primeiro dado
+        dado_b = random.randint(1, 6) # Sorteia um número de 1 a 6 para o segundo dado
+        cont += 1 # Conta uma jogada que foi feita
+        
+        # Encerra o laço criado quando os numeros dos dados forem iguais
+        # Termina o jogo
+        if dado_a == dado_b:
+            break  
+
+    print(cont, "jogadas para os dois dados mostraram o número:" , dado_a)
+
+dados() 
+
+
+
 
