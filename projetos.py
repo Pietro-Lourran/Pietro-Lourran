@@ -169,3 +169,33 @@ desenha_ceu()
 #---------------- Questao 06 ---------------
 
 
+
+
+
+
+
+
+
+
+#--------------- Questao 07 ----------------
+''' Verifica se um numero inteiro é perfeito ou nao é perfeito '''
+
+def num_perfeito(n):
+   
+    soma = 0 # armazena a soma dos divisores 
+    i = 1 # divisor comeca em 1 
+    while i <= n // 2 : # nenhum numero maior que a metade de n pode ser divisor de n
+        if n % i == 0: # se o resto da divisao de n por i for zero , i é divisor de n 
+            soma += i 
+        i += 1
+        # se n for um numero perfeito retorna True se nao retorna False 
+    return soma == n
+
+# Teste
+num = int(input("Digite qualquer número inteiro positivo: "))
+if num_perfeito(num):
+    print("O número",num, "é perfeito!")
+else:
+    print("O número",num, "não perfeito!")
+
+
