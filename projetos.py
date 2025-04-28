@@ -126,40 +126,41 @@ def dados():
 dados() 
 
 #----------------- Questão 05 ----------------
-'''    '''
+''' Fez um desenho de um céu a noite com estrelas de tamanhos e posições aleatórias '''
+
 import turtle as t
 import random 
 
 def estrela(lado, cor='blue'):
-    '''Desenha uma estrela de 5 pontas sem usar for'''
+    '''Desenha uma estrela de 5 pontas '''
     t.color(cor)
-    passos = 0
-    while passos < 5:
+    i = 1
+    while i <= 5:
         t.forward(lado)
         t.right(216)
-        passos += 1
+        i += 1
 
-def desenha_ceu():
-    t.speed('fastest') 
-    t.bgcolor('black')
+def desenha_ceu(): #desenha um ceu estrelado com estrelas de tamanhos aleatorias em diversas posições
+    t.speed('fastest') # velocidade máxima que é desenhado
+    t.bgcolor('black') # cor do fundo do desenho 
     
     contador = 0
     while contador < 50:
-        x = random.randint(-300, 300)
-        y = random.randint(-200, 200)
+        x = random.randint(-300, 300) # gera posições aleatorias para as estrelas 
+        y = random.randint(-200, 200)# tambem gera posicoes aleatórias para as estrelas 
         
-        t.penup()
-        t.goto(x, y)
-        t.pendown()
+        t.penup() #levanta a caneta 
+        t.goto(x, y)#movimenta a caneta para as posições
+        t.pendown() # poe a caneta de volta para inciar novamente ao desenho 
         
-        tamanho = random.randint(10, 40)
+        tamanho = random.randint(10, 40) # tamanho aleatório das estrelas 
         estrela(tamanho, 'blue')
         
-        t.penup()  # <<<<<<<<<< ADICIONEI AQUI, levantar a caneta depois de desenhar
+        t.penup()  # levanta a caneta depois de desenhar
         
-        contador += 1
+        contador += 1 #contador de estrelas desenhadas 
 
-    t.done()
+    t.done() #encerra o desenho 
 
 # Chama a função para desenhar o céu
 desenha_ceu()
