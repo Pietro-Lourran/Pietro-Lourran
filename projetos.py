@@ -167,6 +167,56 @@ desenha_ceu()
 
 
 #---------------- Questao 06 ---------------
+import turtle as des
+
+def pintar_casa(tam, cor):
+    '''Desenha uma casa quadrada do tabuleiro com o tamanho e cor definidos'''
+    des.begin_fill() # inicia o preenchimento das casas do tabuleiro
+    des.fillcolor(cor) #define a cor 
+    lado = 0
+    while lado < 4: # desenha um quadrado 
+        des.forward(tam)
+        des.left(90)
+        lado += 1
+    des.end_fill() # finaliza o preenchimento 
+
+def desenhar_tabuleiro(c1='red', c2='black'):
+    '''Cria um tabuleiro estilo xadrez com cores alternadas usando turtle'''
+    des.speed('fastest') # velocidade do desenho
+    des.bgcolor('black') # cor de fundo 
+    des.hideturtle() # oculta o ponteiro 
+    
+# Determina que o tabuleiro é 8x8 e o tamanho de cada casa do tabuleiro
+    tamanho_casa = 40
+    total_linhas = 8
+    total_colunas = 8
+#coordenadas iniciais do desenho
+    origem_x = -160
+    origem_y = 160
+
+    linha_atual = 0
+    while linha_atual < total_linhas:
+        coluna_atual = 0
+        des.penup()
+        des.goto(origem_x, origem_y - linha_atual * tamanho_casa) # move o cursor para o inicio 
+        while coluna_atual < total_colunas:
+            x = origem_x + coluna_atual * tamanho_casa # calcula a posicao x da casa 
+            y = origem_y - linha_atual * tamanho_casa # calcula a poiscao y da casa 
+            des.goto(x, y) #move o cursor para as posições
+
+            # alterna as cores das casas do tabuleiro xadrez
+            if (linha_atual + coluna_atual) % 2 == 0:
+                cor_casa = c1
+            else:
+                cor_casa = c2
+
+            desenho.pendown()
+            pintar_casa(tamanho_casa, cor_casa) # desenha cada casa com suas respectivas cores
+            des.penup()
+            coluna_atual += 1
+        linha_atual += 1
+
+    des.done()
 
 
 
