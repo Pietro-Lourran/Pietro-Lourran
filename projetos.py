@@ -199,27 +199,30 @@ else:
     print("O número",num, "não perfeito!")
    
 #---------------- Questão 08 --------------
-''' Calcular a soma de todos os números primos menores que n'''
+''' Soma o 
 
 def total_primos(n):
-    def test_primo(num):# verifica que o numero é primo
-        if num < 2: #todo numero menor que 2 não é primo
-            return False #retorna que nao é primo
-  #  testa se ele é divisível por qualquer númerode 2 até a raiz quadrada dele
+    def test_primo(num):  # verifica se o número é primo
+        if num < 2:  # todo número menor que 2 não é primo
+            return False
         divisor = 2
-        while divisor * divisor <= num:
-            if num % divisor == 0: # verifica se tem algum divisor 
-                return False # retorna que nao é primo
+        while divisor * divisor <= num:  # testa divisibilidade até a raiz quadrada
+            if num % divisor == 0:
+                return False
             divisor += 1
-        return True # retorna que é primo
-  # calcula a soma dos numeros primos menor que n
+        return True
+
     soma = 0
-    i = 2 # inicia com primeiro numero primo
+    i = 2  # começa com o primeiro número primo
     while i < n:
         if test_primo(i):
             soma += i
         i += 1
 
-    print("A soma dos números primos menores que",n, "é",soma)
+    print("A soma dos números primos menores que", n, "é", soma)
+
+# Exemplo de chamada da função:
+total_primos(20)  # Você passa o número direto aqui
+
 
 
