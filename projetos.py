@@ -199,7 +199,7 @@ else:
     print("O número",num, "não perfeito!")
    
 #---------------- Questão 08 --------------
-''' Soma o 
+''' Soma todos os numeros primos menores que n'''
 
 def total_primos(n):
     def test_primo(num):  # verifica se o número é primo
@@ -225,34 +225,33 @@ def total_primos(n):
 total_primos(20)  # Você passa o número direto aqui
 
 #--------------- Questao 09 ---------------
-
-
-
-def calc_juros_comp(p_valor_inicial, r_juros, anos):
-    """
-    Simula o crescimento de um investimento com juros compostos ao longo dos anos.
+'''  Calcula a taxa de juros compostos ao longo dos anos.
 
     Parâmetros:
           p_inicial --> Valor aplicado
           r_juros --> % de juros ao ano
           anos --> Duração da aplicação em anos.
 
-    Resultado:
-    Exibe o saldo atualizado ano após ano.
-    """
 
-    # Inicializa o saldo com o valor inicial investido
+def calc_juros_comp(p_valor_inicial, r_juros, anos):
+
+    
+    # Exibe o saldo atualizado ano após ano.
+    
+
+    # Da inicio ao saldo com o valor inicial investido
     saldo = p_inicial
 
-    # Cabeçalho da tabela de resultados
+    # Organiza o ano e o valor acumulado 
     print("Ano    Valor acumulado")
     
-    # Inicia o contador de anos cont --> contador
+    # Inicia o contador de anos ; cont --> contador
     cont = 1
 
     # Laço que se repete enquanto o contador for menor ou igual ao número de anos
     while cont <= anos:
-        # Atualiza o saldo aplicando os juros compostos para o ano atual
+      
+        # Saldo aplicado com os juros compostos para o ano atual
         saldo *= (1 + r_juros)
 
         # Exibe o ano atual e o saldo formatado com duas casas decimais
