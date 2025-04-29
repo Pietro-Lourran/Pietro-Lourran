@@ -197,5 +197,29 @@ if num_perfeito(num):
     print("O número",num, "é perfeito!")
 else:
     print("O número",num, "não perfeito!")
+   
+#---------------- Questão 08 --------------
+''' Calcular a soma de todos os números primos menores que n'''
+
+def total_primos(n):
+    def test_primo(num):# verifica que o numero é primo
+        if num < 2: #todo numero menor que 2 não é primo
+            return False #retorna que nao é primo
+  #  testa se ele é divisível por qualquer númerode 2 até a raiz quadrada dele
+        divisor = 2
+        while divisor * divisor <= num:
+            if num % divisor == 0: # verifica se tem algum divisor 
+                return False # retorna que nao é primo
+            divisor += 1
+        return True # retorna que é primo
+  # calcula a soma dos numeros primos menor que n
+    soma = 0
+    i = 2 # inicia com primeiro numero primo
+    while i < n:
+        if test_primo(i):
+            soma += i
+        i += 1
+
+    print("A soma dos números primos menores que",n, "é",soma)
 
 
