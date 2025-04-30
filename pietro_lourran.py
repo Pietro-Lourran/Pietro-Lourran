@@ -105,7 +105,7 @@ print(f"Alíquota efetiva: {aliquota:.2f}%")
 ''' Conta quantas vezes os dados foram lançados ate sairem o mesmo número'''
 
 
-import random
+import random #importa random da biblioteca 
 
 def dados():
     cont = 0  # Começa a contagem de vezes que o dado foi jogado
@@ -128,63 +128,66 @@ dados()
 #----------------- Questão 05 ----------------
 ''' Fez um desenho de um céu a noite com estrelas de tamanhos e posições aleatórias '''
 
-import turtle as des
-import random 
+import turtle as d # importa o comando turtle da biblioteca 
+import random  # importa o comando random da biblioteca 
 
 def estrela(lado, cor='blue'):
-    '''Desenha uma estrela de 5 pontas '''
-    des.color(cor)
+   
+    #Desenha uma estrela de 5 pontas 
+    d.color(cor)
     i = 1
     while i <= 5:
-        des.forward(lado)
-        des.right(216)
+        d.forward(lado)
+        d.right(216)
         i += 1
 
 def desenha_ceu(): #desenha um ceu estrelado com estrelas de tamanhos aleatorias em diversas posições
-    des.speed('fastest') # velocidade máxima que é desenhado
-    des.bgcolor('black') # cor do fundo do desenho 
+    d.speed('fastest') # velocidade máxima que é desenhado
+    d.bgcolor('black') # cor do fundo do desenho 
     
     contador = 0
     while contador < 50:
         x = random.randint(-300, 300) # gera posições aleatorias para as estrelas 
         y = random.randint(-200, 200)# tambem gera posicoes aleatórias para as estrelas 
         
-        des.penup() #levanta a caneta 
-        des.goto(x, y)#movimenta a caneta para as posições
-        des.pendown() # poe a caneta de volta para inciar novamente ao desenho 
+        d.penup() #levanta a caneta 
+        d.goto(x, y)#movimenta a caneta para as posições
+        d.pendown() # poe a caneta de volta para inciar novamente ao desenho 
         
         tamanho = random.randint(10, 40) # tamanho aleatório das estrelas 
         estrela(tamanho, 'blue')
         
-        des.penup()  # levanta a caneta depois de desenhar
+        d.penup()  # levanta a caneta depois de desenhar
         
         contador += 1 #contador de estrelas desenhadas 
 
-    des.done() #encerra o desenho 
+    d.done() #encerra o desenho 
 
 # Chama a função para desenhar o céu
 desenha_ceu()
 
 
 #---------------- Questao 06 ---------------
-import turtle as des
+''' Desenha uma imagem tipo um tabuleiro de xadrez com as cores, vermelho e preto'''
+
+import turtle as d
 
 def pintar_casa(tam, cor):
-    '''Desenha uma casa quadrada do tabuleiro com o tamanho e cor definidos'''
-    des.begin_fill() # inicia o preenchimento das casas do tabuleiro
-    des.fillcolor(cor) #define a cor 
+    #Desenha uma casa quadrada do tabuleiro com o tamanho e cor definidos
+    d.begin_fill() # inicia o preenchimento das casas do tabuleiro
+    d.fillcolor(cor) #define a cor 
     lado = 0
     while lado < 4: # desenha um quadrado 
-        des.forward(tam)
-        des.left(90)
+        d.forward(tam)
+        d.left(90)
         lado += 1
-    des.end_fill() # finaliza o preenchimento 
+    d.end_fill() # finaliza o preenchimento 
 
 def desenhar_tabuleiro(casa_1='red', casa_2 ='black'):
-    '''Cria um tabuleiro estilo xadrez com cores alternadas usando turtle'''
-    des.speed('fastest') # velocidade do desenho
-    des.bgcolor('black') # cor de fundo 
-    des.hideturtle() # oculta o ponteiro 
+    #Cria um tabuleiro estilo xadrez com cores alternadas usando turtle
+    d.speed('fastest') # velocidade do desenho
+    d.bgcolor('black') # cor de fundo 
+    d.hideturtle() # oculta o ponteiro 
     
 # Determina que o tabuleiro é 8x8 e o tamanho de cada casa do tabuleiro
     tamanho_casa = 40
@@ -197,12 +200,12 @@ def desenhar_tabuleiro(casa_1='red', casa_2 ='black'):
     linha_atual = 0
     while linha_atual < total_linhas:
         coluna_atual = 0
-        des.penup()
-        des.goto(origem_x, origem_y - linha_atual * tamanho_casa) # move o cursor para o inicio 
+        d.penup()
+        d.goto(origem_x, origem_y - linha_atual * tamanho_casa) # move o cursor para o inicio 
         while coluna_atual < total_colunas:
             x = origem_x + coluna_atual * tamanho_casa # calcula a posicao x da casa 
             y = origem_y - linha_atual * tamanho_casa # calcula a poiscao y da casa 
-            des.goto(x, y) #move o cursor para as posições
+            d.goto(x, y) #move o cursor para as posições
 
             # alterna as cores das casas do tabuleiro xadrez
             if (linha_atual + coluna_atual) % 2 == 0:
@@ -210,13 +213,13 @@ def desenhar_tabuleiro(casa_1='red', casa_2 ='black'):
             else:
                 cor_casa = casa_2
 
-            des.pendown()
+            d.pendown()
             pintar_casa(tamanho_casa, cor_casa) # desenha cada casa com suas respectivas cores
-            des.penup()
+            d.penup()
             coluna_atual += 1
         linha_atual += 1
 
-    des.done()
+    d.done()
 
 
 
