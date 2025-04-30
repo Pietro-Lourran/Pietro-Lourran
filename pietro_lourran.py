@@ -24,7 +24,7 @@ def calcular_agua(consumo):
     valor = 7.00 # Assinatura básica
     consumo_30 = (consumo - 10) * 1
     consumo_100 = (consumo - 30) * 2
-    excedente = (consumo - 100) * 5
+    acima_de_cem = (consumo - 100) * 5
     
 # Condicinando 
     if consumo <= 10:    # Se o consumo de agua for ate 10 m3
@@ -42,11 +42,11 @@ def calcular_agua(consumo):
     # Consumo acima de 100 m3
     else:
     
-        valor += 20 * 1 + 70 * 2 + excedente   # Consumo até 20 mais consumo ate 100 mais consumo acima de 100
+        valor += 20 * 1 + 70 * 2 + acima_de_cem   # Consumo até 20 mais consumo ate 100 mais consumo acima de 100
 
     return valor
 
-consumo = int(input("Digite o consumo de água em m³: "))
+consumo = int(input("Digite o gasto de água em m³: "))
 conta = calcular_agua(consumo)
 print("O valor da conta de água é:R$", conta )
 
@@ -96,11 +96,11 @@ def calculo_de_ir (renda):
 renda = float(input("Digite a renda mensal em R$: "))
 # Função p/ calcular
 imposto_tot, aliquota = calculo_de_ir (renda)
-
-print(f"Imposto: R$ {imposto_tot:.2f}")# comando .2f garante que o resultado tera duas casas decimais 
+# imprime o valor do imposto e da aliquota
+print(f"Imposto: R$ {imposto_tot:.2f}")# comando .2f garante que o resultado tera duas casas decimais | fica mais legível o resultado
 print(f"Alíquota efetiva: {aliquota:.2f}%")
 
-#--------------- Questão 04 -----------------
+#-------------- Questão 04 -----------------
 
 ''' Conta quantas vezes os dados foram lançados ate sairem o mesmo número'''
 
@@ -112,11 +112,11 @@ def dados():
 
 
     while True:  # Cria um laço que que vai rodar infinitamente
-        dado_a = random.randint(1, 6) # Sorteia um número de 1 a 6 para o primeiro dado
-        dado_b = random.randint(1, 6) # Sorteia um número de 1 a 6 para o segundo dado
+        dado_a = random.randint(1, 6) # Sorteia um número aleatorio de 1 a 6 para o primeiro dado
+        dado_b = random.randint(1, 6) # Sorteia um número aleatorio de 1 a 6 para o segundo dado
         cont += 1 # Conta uma jogada que foi feita
         
-        # Encerra o laço criado quando os numeros dos dados forem iguais
+        # para o loop criado quando os numeros dos dados forem iguais
         # Termina o jogo
         if dado_a == dado_b:
             break  
@@ -147,8 +147,8 @@ def desenha_ceu(): #desenha um ceu estrelado com estrelas de tamanhos aleatorias
     
     contador = 0
     while contador < 50:
-        x = random.randint(-300, 300) # gera posições aleatorias para as estrelas 
-        y = random.randint(-200, 200)# tambem gera posicoes aleatórias para as estrelas 
+        x = random.randint(-500, 500) # gera posições aleatorias para as estrelas 
+        y = random.randint(-400, 400)# tambem gera posicoes aleatórias para as estrelas 
         
         d.penup() #levanta a caneta 
         d.goto(x, y)#movimenta a caneta para as posições
@@ -257,16 +257,16 @@ else:
 def total_primos(n):
     def test_primo(num):  # verifica se o número é primo
         if num < 2:  # todo número menor que 2 não é primo
-            return False
+            return False # retorna falso
         divisor = 2
         while divisor * divisor <= num:  # testa divisibilidade até a raiz quadrada
             if num % divisor == 0:
                 return False
             divisor += 1
-        return True
+        return True # retorna verdadeiro
 
     somatorio = 0
-    i = 2  # começa com o primeiro número primo
+    i = 2  # começa com o primeiro número primo o 2 
     while i < n:
         if test_primo(i):
             somatorio += i
@@ -275,7 +275,7 @@ def total_primos(n):
     print("A soma dos números primos menores que", n, "é", somatorio)
 
 # Exemplo de chamada da função:
-total_primos(20)  # Você passa o número direto aqui
+total_primos(20)  # no lugar do 20 podem ser outros nuneros
 
 #--------------- Questao 09 ---------------
 '''  Calcula a taxa de juros compostos ao longo dos anos.'''
@@ -296,9 +296,9 @@ def calc_juros_comp(p_valor_inicial, r_juros, anos):
     saldo = p_valor_inicial
 
     # Organiza o ano e o valor acumulado 
-    print("Ano  |  Valor acumulado")
+    print("Ano  | Valor acumulado")
     
-    # Inicia o contador de anos ; cont --> contador
+    # Inicia o contador de anos | cont --> contador
     cont = 1
 
     # loop que faz a contagem dos anos 
@@ -307,17 +307,17 @@ def calc_juros_comp(p_valor_inicial, r_juros, anos):
         # Saldo aplicado com os juros 
         saldo *= (1 + r_juros)
 
-        # ano atual e o saldo formatado com duas casas decimais
-        print(f"{cont:<5}  R$ {saldo:.2f}")
+        # imprime o ano e o saldo com duas casas decimais
+        print(f"{cont:<5}| R$ {saldo:.2f}")
 
-        # adiciona o o contador para passar os anos
+        # contador para passar os anos
         cont += 1
 
 # Exemplo 
 calc_juros_comp(1000.00, 0.05, 10)
 
 #---------------- Questao 10 --------------
-def calcula_invest():
+def calculadora_de_invest():
     # solicita os valor inicial investido , o aporte mensal e o objetivo
     ap_inicial = float(input("Valor que deseja investir inicialmente: "))  # aporte inicial 
     ap_mensal = float(input("Aporte mensal: "))  # valor que será investido todo mês
@@ -364,10 +364,10 @@ def calcula_invest():
     meses_finais = meses_ate_valor_esperado % 12
 
     # mostra o relatório final 
-    print(f"\nPara atingir o objetivo de R$ {valor_esperado:.2f}") # comando\n quebra a linha 
+    print(f"Para atingir o objetivo de R$ {valor_esperado:.2f}")
     print(f"Você precisará de {anos_finais} anos e {meses_finais} meses.")
     print(f"Saldo final com investimento: R$ {saldo_investimento:.2f}") #comando .2f ganrante que tenha 2 casas decimais no resultado
     print(f"Saldo final com a poupança: R$ {saldo_poupanca:.2f}")
 
 # Executa a função
-calcula_invest()
+calculadora_de_invest()
