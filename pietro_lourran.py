@@ -97,7 +97,7 @@ renda = float(input("Digite a renda mensal em R$: "))
 # Função p/ calcular
 imposto_tot, aliquota = calculo_de_ir (renda)
 
-print(f"Imposto devido: R$ {imposto_tot:.2f}")
+print(f"Imposto devido: R$ {imposto_tot:.2f}")# comando .2f garante que o resultado tera duas casas decimais 
 print(f"Alíquota efetiva: {aliquota:.2f}%")
 
 #--------------- Questão 04 -----------------
@@ -126,7 +126,7 @@ def dados():
 dados() 
 
 #----------------- Questão 05 ----------------
-''' Fez um desenho de um céu a noite com estrelas de tamanhos e posições aleatórias '''
+''' Faz um desenho de um céu a noite com estrelas de tamanhos e posições aleatórias '''
 
 import turtle as d # importa o comando turtle da biblioteca 
 import random  # importa o comando random da biblioteca 
@@ -235,14 +235,14 @@ def desenhar_tabuleiro(casa_1='red', casa_2 ='black'):
 
 def num_perfeito(n):
    
-    soma = 0 # armazena a soma dos divisores 
+    somatorio = 0 # armazena a soma dos divisores 
     i = 1 # divisor comeca em 1 
     while i <= n // 2 : # nenhum numero maior que a metade de n pode ser divisor de n
         if n % i == 0: # se o resto da divisao de n por i for zero , i é divisor de n 
-            soma += i 
+            somatorio += i 
         i += 1
         # se n for um numero perfeito retorna True se nao retorna False 
-    return soma == n
+    return somatorio == n
 
 # Teste
 num = int(input("Digite qualquer número inteiro positivo: "))
@@ -265,14 +265,14 @@ def total_primos(n):
             divisor += 1
         return True
 
-    soma = 0
+    somatorio = 0
     i = 2  # começa com o primeiro número primo
     while i < n:
         if test_primo(i):
-            soma += i
+            somatorio += i
         i += 1
 
-    print("A soma dos números primos menores que", n, "é", soma)
+    print("A soma dos números primos menores que", n, "é", somatorio)
 
 # Exemplo de chamada da função:
 total_primos(20)  # Você passa o número direto aqui
