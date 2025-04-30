@@ -296,21 +296,21 @@ def calc_juros_comp(p_valor_inicial, r_juros, anos):
     saldo = p_valor_inicial
 
     # Organiza o ano e o valor acumulado 
-    print("Ano    Valor acumulado")
+    print("Ano  |  Valor acumulado")
     
     # Inicia o contador de anos ; cont --> contador
     cont = 1
 
-    # Laço que se repete enquanto o contador for menor ou igual ao número de anos
+    # loop que faz a contagem dos anos 
     while cont <= anos:
       
-        # Saldo aplicado com os juros compostos para o ano atual
+        # Saldo aplicado com os juros 
         saldo *= (1 + r_juros)
 
-        # Exibe o ano atual e o saldo formatado com duas casas decimais
+        # ano atual e o saldo formatado com duas casas decimais
         print(f"{cont:<5}  R$ {saldo:.2f}")
 
-        # Incrementa o contador para passar para o próximo ano
+        # adiciona o o contador para passar os anos
         cont += 1
 
 # Exemplo 
@@ -323,7 +323,7 @@ def calcula_invest():
     ap_mensal = float(input("Aporte mensal: "))  # valor que será investido todo mês
     valor_esperado = float(input("Valor esperado ao fim do investimento: "))
 
-    # solicita o tempo investimento ano/mes
+    # entrada para o tempo investimento ano/mes
     anos = int(input("Quantos anos de investimento: "))
     meses = int(input("Quantos meses adicionais: "))
 
