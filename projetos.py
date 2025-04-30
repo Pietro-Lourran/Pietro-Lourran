@@ -180,7 +180,7 @@ def pintar_casa(tam, cor):
         lado += 1
     des.end_fill() # finaliza o preenchimento 
 
-def desenhar_tabuleiro(c1='red', c2='black'):
+def desenhar_tabuleiro(casa_1='red', casa_2 ='black'):
     '''Cria um tabuleiro estilo xadrez com cores alternadas usando turtle'''
     des.speed('fastest') # velocidade do desenho
     des.bgcolor('black') # cor de fundo 
@@ -206,9 +206,9 @@ def desenhar_tabuleiro(c1='red', c2='black'):
 
             # alterna as cores das casas do tabuleiro xadrez
             if (linha_atual + coluna_atual) % 2 == 0:
-                cor_casa = c1
+                cor_casa = casa_1
             else:
-                cor_casa = c2
+                cor_casa = casa_2
 
             des.pendown()
             pintar_casa(tamanho_casa, cor_casa) # desenha cada casa com suas respectivas cores
