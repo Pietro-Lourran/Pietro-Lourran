@@ -275,7 +275,7 @@ def total_primos(n):
 total_primos(20)  # Você passa o número direto aqui
 
 #--------------- Questao 09 ---------------
-'''  Calcula a taxa de juros compostos ao longo dos anos.
+'''  Calcula a taxa de juros compostos ao longo dos anos.'''
 
     Parâmetros:
           p_inicial --> Valor aplicado
@@ -313,3 +313,63 @@ def calc_juros_comp(p_valor_inicial, r_juros, anos):
 # Exemplo de uso da função:
 calc_juros_comp(1000.00, 0.05, 10)
 
+#---------------- Questao 10 --------------
+'''Calcula a evolucao de um investimento durante o periodo desejado
+comparando com a poupança '''
+
+def calcula_invest():
+    
+
+    # solicita os valor inicial investido , o aporte mensal e o objetivo
+    ap_inicial = float(input("Valor que deseja investir inicialmente: ")) # aporte inicial 
+    ap_mensal = float(input("Aporte mensal: ")) # valor que sera investido todo mês
+    valor_esperado = float(input("Valor esperado ao fim do investimento: "))
+
+    # solicita o tempo investimento ano/mes
+    anos = int(input("Quantos anos de investimento: "))
+    meses = int(input("Quantos meses adicionais: "))
+
+    # Calcula o tempo de meses
+    total_meses = anos * 12 + meses
+
+   # solicita a taxa de juros mensal ou anual
+    taxa = float(input("Taxa de juros em %): ")) / 100 # converte em %
+    tipo = input("A taxa de juros é anual ou mensal? ")
+
+    if tipo == "anual": # converte a taxa anual em mensal
+        taxa = (1 + taxa) ** (1 / 12) - 1
+
+    # poupança definida como 0,5%
+    taxa_poup = 0.005
+
+    # Saldos iniciais
+    saldo_investimento = ap_inicial
+    saldo_poupanca = ap_inicial
+
+    mes = 1
+    while mes <= total_meses:
+        saldo_investimento = saldo_investimento * (1 + taxa) + ap_mensal # aplica o juros e o aporte mensal no saldo do investimento 
+        saldo_poupanca = saldo_poupanca * (1 + taxa_poup) + ap_mensal # aplica o juros da poupanca e do aporte mensal 
+        print("Mês", mes, "- Saldo: R$", round(saldo_investimento, 2), " | Poupança: R$", round(saldo_poupanca, 2)) # mostra o saldo de cada opcao com duas casas decimais -funcao: around-
+        mes += 1 # avança os meses 
+
+    # Calcula o tempo para alcançar o objetivo 
+    saldo_temp = ap_inicial # reinicia o valor inicial 
+    meses_ate_valor_esperado = 0 #zera o contadot
+    
+    while saldo_temp < valor_esperado:
+        saldo_temp = saldo_temp * (1 + taxa) + ap_mensal
+        meses_ate_valor_esperado += 1
+        
+   #converte o tempo necessario de meses para anos 
+    anos_finais = meses_ate_valor_esperado // 12
+    meses_finais = meses_ate_valor_esperado % 12
+    
+  # mostra o relatorio final 
+    print("\nPara atingir o objetivo de R$", round(valor_esperado, 2))
+    print("Você precisará de", anos_finais, "anos e", meses_finais, "meses.")
+    print("Saldo final com investimento: R$", round(saldo_investimento, 2))
+    print("Saldo final com a poupança: R$", round(saldo_poupanca, 2))
+
+# Executa a função
+calcula_invest()
