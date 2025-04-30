@@ -364,9 +364,9 @@ def calcula_invest():
     meses_finais = meses_ate_valor_esperado % 12
 
     # mostra o relatório final 
-    print(f"\nPara atingir o objetivo de R$ {valor_esperado:.2f}")
+    print(f"\nPara atingir o objetivo de R$ {valor_esperado:.2f}") # comando\n quebra a linha 
     print(f"Você precisará de {anos_finais} anos e {meses_finais} meses.")
-    print(f"Saldo final com investimento: R$ {saldo_investimento:.2f}")
+    print(f"Saldo final com investimento: R$ {saldo_investimento:.2f}") #comando .2f ganrante que tenha 2 casas decimais no resultado
     print(f"Saldo final com a poupança: R$ {saldo_poupanca:.2f}")
 
 # Executa a função
