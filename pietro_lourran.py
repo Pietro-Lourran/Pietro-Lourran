@@ -277,10 +277,10 @@ total_primos(20)  # Você passa o número direto aqui
 #--------------- Questao 09 ---------------
 '''  Calcula a taxa de juros compostos ao longo dos anos.'''
 
-    Parâmetros:
-          p_inicial --> Valor aplicado
-          r_juros --> % de juros ao ano
-          anos --> Duração da aplicação em anos.
+    #Parâmetros:
+          #p_inicial --> Valor aplicado
+          #r_juros --> % de juros ao ano
+          #anos --> Duração da aplicação em anos.
 
 
 def calc_juros_comp(p_valor_inicial, r_juros, anos):
@@ -290,7 +290,7 @@ def calc_juros_comp(p_valor_inicial, r_juros, anos):
     
 
     # Da inicio ao saldo com o valor inicial investido
-    saldo = p_inicial
+    saldo = p_valor_inicial
 
     # Organiza o ano e o valor acumulado 
     print("Ano    Valor acumulado")
@@ -310,7 +310,7 @@ def calc_juros_comp(p_valor_inicial, r_juros, anos):
         # Incrementa o contador para passar para o próximo ano
         cont += 1
 
-# Exemplo de uso da função:
+# Exemplo 
 calc_juros_comp(1000.00, 0.05, 10)
 
 #---------------- Questao 10 --------------
