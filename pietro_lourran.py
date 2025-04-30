@@ -97,7 +97,7 @@ renda = float(input("Digite a renda mensal em R$: "))
 # Função p/ calcular
 imposto_tot, aliquota = calculo_de_ir (renda)
 
-print(f"Imposto devido: R$ {imposto_tot:.2f}")# comando .2f garante que o resultado tera duas casas decimais 
+print(f"Imposto: R$ {imposto_tot:.2f}")# comando .2f garante que o resultado tera duas casas decimais 
 print(f"Alíquota efetiva: {aliquota:.2f}%")
 
 #--------------- Questão 04 -----------------
