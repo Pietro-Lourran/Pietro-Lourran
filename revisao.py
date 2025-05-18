@@ -72,6 +72,9 @@ def gerar_numeros_aleatorios_diferentes(n):
     return random.sample(range(101), n)
 
 #------------/----------
-
 def contar_frases(texto):
-    return texto.count('.') + texto.count('!') + texto.count('?') - texto.count('...')
+    total = texto.count('...')  # conta reticências
+    texto = texto.replace('...', '')  # remove os '...' para não contar os pontos deles
+    total += texto.count('.') + texto.count('!') + texto.count('?')
+    return total
+
