@@ -183,4 +183,61 @@ result = relatorio (sequencia_amino)
 for k, v in result.items():
     print(f"{k}: {v}")
 
+#--------------- Questao 07 ------------------
+
+    '''Cria uma matriz com n linhas e m colunas, preenchida com zeros.'''
+def cria_matriz(n, m):
+    
+    return [[0 for _ in range(m)] for _ in range(n)] #cria uma lista de n listas , cada lisa com m zeros 
+
+    '''Soma duas matrizes A e B e retorna a matriz resultante.'''
+    
+def soma_matriz(A, B):
+    
+    if len(A) != len(B) or len(A[0]) != len(B[0]): # verifica se tem as mesmas direcoes 
+        raise ValueError("As matrizes não possuem as mesmas dimensões.")
+    
+    n = len(A) #numero de linhas da matriz 
+    m = len(A[0]) #numero de coluna 
+    C = cria_matriz(n, m) #cria a matriz C com as mesmas dimensões comecando com zeros 
+    
+    for i in range(n): #percorre cada linha 
+        for j in range(m): #percorre cada coluna 
+            C[i][j] = A[i][j] + B[i][j] #soma os elementos de A e B
+    return C #retorna a matriz resultante 
+
+    '''Multiplica todos os elementos da matriz A por k e retorna  a matriz resultante'''
+    
+def multiplica_k (A, k):
+    
+    n = len(A) #numero de linhas 
+    m = len(A[0]) #nuemro de colunas 
+    C = cria_matriz(n, m)#cria a matriz
+    
+    for i in range(n):
+        for j in range(m):
+            C[i][j] = A[i][j] * k
+    return C
+
+    '''Multiplica duas matrizes A e B (se possível) e retorna a matriz resultante'''
+    
+def multiplica_matriz(A, B):
+  
+    linhas_A = len(A)
+    colunas_A = len(A[0])
+    linhas_B = len(B)
+    colunas_B = len(B[0])
+    
+    if colunas_A != linhas_B:
+        raise ValueError(f"Não é possível multiplicar: colunas de A ({colunas_A}) != linhas de B ({linhas_B})")
+    
+    C = cria_matriz(linhas_A, colunas_B)
+    
+    for i in range(linhas_A):
+        for j in range(colunas_B):
+            for k in range(colunas_A):
+                C[i][j] += A[i][k] * B[k][j]
+    return C
+
+
 
