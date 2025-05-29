@@ -93,13 +93,13 @@ def colisao(retangulo_1, retangulo_2):
     x1_2 = retangulo_1[2]
     y1_2 = retangulo_1[3]
     
-    # Pegando as coordenadas do segundo retângulo
+    # coordenadas do segundo retângulo
     x2_1 = retangulo_2[0]
     y2_1 = retangulo_2[1]
     x2_2 = retangulo_2[2]
     y2_2 = retangulo_2[3]
     
-    # Encontrando as menores e maiores coordenadas de cada retângulo
+    # maximos e minimos de cada retângulo
     x1_min = min(x1_1, x1_2)
     x1_max = max(x1_1, x1_2)
     y1_min = min(y1_1, y1_2)
@@ -114,7 +114,7 @@ def colisao(retangulo_1, retangulo_2):
     if x1_max < x2_min or x2_max < x1_min:
         return False
     
-    # Um retangulo acima ou abaixo do outro
+    # verifica se ha um retangulo acima ou abaixo do outro
     if y1_max < y2_min or y2_max < y1_min:
         return False # nao colidem 
     
