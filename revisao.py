@@ -128,21 +128,15 @@ def colisao(retangulo_1, retangulo_2):
 que são maiores que n, em ordem crescente.'''
 
 def maiores_que(lista, n):
-    # Lista com os números maiores que n
-    result = []
+    # Analisa os números maiores que n
+    maiores = []
+    for x in lista:
+        if x > n:
+            maiores += [x]  # adiciona um elemento na lista
 
-    # Para cada número dentro da lista
-    for numero in lista:
-        # número for maior que n
-        if numero > n:
-            # Coloca o numero n lista 
-            result.append(numero)
+    # Retorna a lista ordenada
+    return sorted(maiores)
 
-    # orniza a lista com o resultado do menor pro maior
-    result.sort()
-
-    # retorna a lista 
-    return result
 # ------------- Questao 06 -------------------1-
 '''Analisa a sequência de aminoácidos e retorna informações'''
 
