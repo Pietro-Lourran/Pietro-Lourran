@@ -143,5 +143,44 @@ def maiores_que(lista, n):
 
     # retorna a lista 
     return result
+# ------------- Questao 06 -------------------1-
+'''Analisa a sequência de aminoácidos e retorna informações'''
+
+def relatorio (seq):
+    # Tamanho da lista 
+    tamanho = len(seq)
+
+    # Conta as LL
+    ocorrencias_LL = seq.count('LL')
+
+    # Posições GG e RR
+    posicoes_GG = [i for i in range(len(seq)-1) if seq[i:i+2] == 'GG']
+    posicoes_RR = [i for i in range(len(seq)-1) if seq[i:i+2] == 'RR']
+
+    # contagem dos 100 primeiros aminoácidos
+    primeiros_100 = seq[:100]
+
+    # Substitui SSSR por AAAA
+    seq_substituida = seq.replace('SSSR', 'AAAA')
+
+    # Retornar tudo
+    return {
+        'tamanho': tamanho,
+        'ocorrencias_LL': ocorrencias_LL,
+        'posicoes_GG': posicoes_GG,
+        'posicoes_RR': posicoes_RR,
+        'primeiros_100': primeiros_100,
+        'sequencia_substituida': seq_substituida
+    }
+
+# Sequência
+sequencia_amino = "VRSSSRTPSDKPVAHVVANPQAEGQLQWINRRANALLANGVELRDNQLVVPSEGLYLIYSQVLFKGQGCPSTHVLLTHTISRIAVSYQTKVNLLSAIKSPCQRETPEGAEAKPWYEPIYLGGVFQLEKGDRLSAEINRPDYLLFAESGQVYFGIIAL"
+
+# Usar a função
+result = relatorio (sequencia_amino)
+
+# Mostra o resultado
+for k, v in result.items():
+    print(f"{k}: {v}")
 
 
