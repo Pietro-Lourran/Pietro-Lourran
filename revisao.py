@@ -130,9 +130,9 @@ que são maiores que n, em ordem crescente.'''
 def maiores_que(lista, n):
     # Analisa os números maiores que n
     maiores = []
-    for x in lista:
-        if x > n:
-            maiores += [x]  # adiciona um elemento na lista
+    for a in lista:
+        if a > n:
+            maiores += [a]  # adiciona um elemento na lista
 
     # Retorna a lista ordenada
     return sorted(maiores)
