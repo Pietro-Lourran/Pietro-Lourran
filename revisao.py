@@ -82,3 +82,66 @@ def avaliacao_alunos(dados):
     
     # Retorna a media(com 1 casa decimal e situcao do aluno
     return (nome, f"{media:.1f}", situacao)
+    
+#---------------- Questao 04 --------------------
+'''Verifica se dois retângulos se se colidem no plano 2D.'''
+
+def colisao(retangulo_1, retangulo_2):
+    # Cordenadas do primeiro retângulo
+    x1_1 = retangulo_1[0]
+    y1_1 = retangulo_1[1]
+    x1_2 = retangulo_1[2]
+    y1_2 = retangulo_1[3]
+    
+    # Pegando as coordenadas do segundo retângulo
+    x2_1 = retangulo_2[0]
+    y2_1 = retangulo_2[1]
+    x2_2 = retangulo_2[2]
+    y2_2 = retangulo_2[3]
+    
+    # Encontrando as menores e maiores coordenadas de cada retângulo
+    x1_min = min(x1_1, x1_2)
+    x1_max = max(x1_1, x1_2)
+    y1_min = min(y1_1, y1_2)
+    y1_max = max(y1_1, y1_2)
+    
+    x2_min = min(x2_1, x2_2)
+    x2_max = max(x2_1, x2_2)
+    y2_min = min(y2_1, y2_2)
+    y2_max = max(y2_1, y2_2)
+    
+    # Verifica se os retângulos estao separados ( direita e esquerda )
+    if x1_max < x2_min or x2_max < x1_min:
+        return False
+    
+    # Um retangulo acima ou abaixo do outro
+    if y1_max < y2_min or y2_max < y1_min:
+        return False # nao colidem 
+    
+    
+    return True #colidem 
+
+# ----------------- Questao 05 ---------------
+
+
+'''Função que devolve uma nova lista com os números 
+que são maiores que n, em ordem crescente.'''
+
+def maiores_que(lista, n):
+    # Lista com os números maiores que n
+    result = []
+
+    # Para cada número dentro da lista
+    for numero in lista:
+        # número for maior que n
+        if numero > n:
+            # Coloca o numero n lista 
+            result.append(numero)
+
+    # orniza a lista com o resultado do menor pro maior
+    result.sort()
+
+    # retorna a lista 
+    return result
+
+
