@@ -5,7 +5,7 @@ def contas (valor, operacao):
     '''Função que realiza uma operação entre dois números(parâmetros),
     uma tupla com dois números e uma string.'''
     
-    #Extraindo os dois números da tupla
+    #Extrai os dois números da tupla
     a = valor[0]
     b = valor[1]
 
@@ -68,6 +68,7 @@ def avaliacao_alunos(dados):
 
     '''Função que avalia a situação de um aluno 
     com base em suas três notas.'''
+    
  # tuplas com os dados necessários
     nome, nota1, nota2, nota3 = dados
     # média dos alunos 
@@ -138,9 +139,8 @@ def maiores_que(lista, n):
     return sorted(maiores)
 
 # ------------- Questao 06 -------------------1-
-'''Analisa a sequência de aminoácidos e retorna informações'''
-
-def relatorio(seq):
+'''Analisa uma sequência de aminoácidos e retorna informações sobre'''
+ def relatorio(seq):
     tamanho = len(seq)
     ocorrencias_LL = seq.count('LL')
     posicoes_GG = [i for i in range(len(seq)-1) if seq[i:i+2] == 'GG']
@@ -223,52 +223,52 @@ def multiplica_matriz(A, B):
     return C
 
 #------------------- Questao 08 -------------------
-def relatorio(dados):  # Define a função relatorio que recebe o dicionário de dados
+def relatorio(dados):
+    
     medias = {}  # média de cada categoria 
 
     for categoria in dados:  # Para cada categoria (ex: "Habitação") dentro dos dados
         print(f"\nCategoria: {categoria}")  # Mostra o nome da categoria
         estados = dados[categoria]  # Pega o dicionário de estados e valores dessa categoria
 
-        # Criamos uma lista de tuplas (estado, ipca), excluindo o "Brasil" se tiver
-        estados_sem_brasil = []  
+        # lista com os (estado, ipca), sem o Brasil
+        sem_brasil = []  
         for estado in estados:  
             if estado != 'Brasil':  
-                estados_sem_brasil.append((estado, estados[estado]))  # Exemplo: ('Rio Branco', 0.55)
+                sem_brasil.append((estado, estados[estado]))  # Exemplo: ('Rio Branco', 0.55)
 
-        # Começamos supondo que o menor e o maior são o primeiro da lista
-        menor_estado, menor_ipca = estados_sem_brasil[0]
-        maior_estado, maior_ipca = estados_sem_brasil[0]
+        # menor e o maior são o primeiro da lista
+        menor_estado, menor_ipca = sem_brasil[0]
+        maior_estado, maior_ipca = sem_brasil[0]
 
-        soma_ipca = 0  # Aqui vamos somar todos os IPCAs para depois calcular a média
+        soma_ipca = 0  # soma de todos os IPCAs 
 
-        # Agora percorremos a lista de tuplas
-        for estado, ipca in estados_sem_brasil:
-            if ipca < menor_ipca:  # Se acharmos um IPCA menor, atualizamos o menor
+        # percorre a lista percorremos a lista
+        for estado, ipca in sem_brasil:
+            if ipca < menor_ipca:  # IPCA menor 
                 menor_ipca = ipca
                 menor_estado = estado
-            if ipca > maior_ipca:  # Se acharmos um IPCA maior, atualizamos o maior
+            if ipca > maior_ipca:  # IPCA maior
                 maior_ipca = ipca
                 maior_estado = estado
 
-            soma_ipca += ipca  # Sempre somamos o IPCA atual
+            soma_ipca += ipca  # somam com o IPCA atual
 
-        media_ipca = soma_ipca / len(estados_sem_brasil)  # Agora calculamos a média
-        medias[categoria] = media_ipca  # Guardamos essa média no dicionário
+        media_ipca = soma_ipca / len(sem_brasil)  # calcula a média
+        medias[categoria] = media_ipca 
 
-        # Mostramos os resultados
+        # imorime os resultados
         print(f"  a) Estado com menor IPCA: {menor_estado} ({menor_ipca:.2f}%)")
         print(f"  b) Estado com maior IPCA: {maior_estado} ({maior_ipca:.2f}%)")
         print(f"  c) Média do IPCA: {media_ipca:.2f}%")
 
-    # Agora vamos analisar qual categoria teve a maior e a menor média
-    categorias_tuplas = list(medias.items())  # Transformamos em lista de tuplas: (categoria, media)
+    # categoria com a maior e a menor média
+    categorias_tuplas = list(medias.items()) 
 
-    # Começamos supondo que a maior e menor são a primeira categoria
     maior_categoria, maior_media = categorias_tuplas[0]
     menor_categoria, menor_media = categorias_tuplas[0]
 
-    # Agora percorremos todas as categorias para comparar
+    # compara as categorias 
     for categoria, media in categorias_tuplas:
         if media > maior_media:
             maior_media = media
@@ -277,10 +277,11 @@ def relatorio(dados):  # Define a função relatorio que recebe o dicionário de
             menor_media = media
             menor_categoria = categoria
 
-    # Mostramos o resumo final
+    # resumo final
     print("\nResumo final:")
     print(f"  d) Categoria com maior IPCA médio: {maior_categoria} ({maior_media:.2f}%)")
     print(f"  e) Categoria com menor IPCA médio: {menor_categoria} ({menor_media:.2f}%)")
+
 # dados para analise 
 dados_ipca = {
     'Índice geral': {
@@ -395,7 +396,7 @@ dados_ipca = {
     }
 }
 
-# Chama a função passando os dados
+# Chamar a funçao 
 relatorio(dados_ipca)
 
 
