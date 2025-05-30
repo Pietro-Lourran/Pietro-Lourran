@@ -135,7 +135,7 @@ def maiores_que(lista, n):
         if a > n:
             maiores += [a]  # adiciona um elemento na lista
 
-    # Retorna a lista ordenada
+    # Retorna a lista 
     return sorted(maiores)
 
 # ------------- Questao 06 -------------------1-
@@ -156,8 +156,7 @@ def maiores_que(lista, n):
         'primeiros_100': primeiros_100,
         'sequencia_substituida': seq_substituida
     }
-
-# Programa interativo
+    #entrada 
 sequencia_amino = input("Digite a sequência de aminoácidos ou letras: ").strip().upper()
 
 resultado = relatorio(sequencia_amino)
@@ -171,9 +170,9 @@ for k, v in resultado.items():
     '''Cria uma matriz com n linhas e m colunas, preenchida com zeros.'''
 def cria_matriz(n, m):
     
-    return [[0 for _ in range(m)] for _ in range(n)] #cria uma lista de n listas , cada lisa com m zeros 
+    return [[0 for _ in range(m)] for _ in range(n)] #cria uma lista de n listas , cada lista com m zeros 
 
-    '''Soma duas matrizes A e B e retorna a matriz resultante.'''
+    #Soma duas matrizes A e B e retorna a matriz resultante.
     
 def soma_matriz(A, B):
     
