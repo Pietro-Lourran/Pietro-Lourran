@@ -168,9 +168,9 @@ for k, v in resultado.items():
 #--------------- Questao 07 ------------------
 
     '''Cria uma matriz com n linhas e m colunas, preenchida com zeros.'''
-def cria_matriz(n, m):
+def cria_matriz(n_linhas, n_colunas):
     
-    return [[0 for _ in range(m)] for _ in range(n)] #cria uma lista de n listas , cada lista com m zeros 
+    return [[0 for _ in range(n_colunas)] for _ in range(n_linhas)] #cria uma lista de n listas , cada lista com m zeros 
 
     #Soma duas matrizes A e B e retorna a matriz resultante.
     
@@ -179,12 +179,12 @@ def soma_matriz(A, B):
     if len(A) != len(B) or len(A[0]) != len(B[0]): # verifica se tem as mesmas direcoes 
         raise ValueError("As matrizes não possuem as mesmas dimensões.")
     
-    n = len(A) #numero de linhas da matriz 
-    m = len(A[0]) #numero de coluna 
-    C = cria_matriz(n, m) #cria a matriz C com as mesmas dimensões comecando com zeros 
+    n_linhas = len(A) #numero de linhas da matriz 
+    n_colunas = len(A[0]) #numero de coluna 
+    C = cria_matriz(n_linhas, n_colunas) #cria a matriz C com as mesmas dimensões comecando com zeros 
     
-    for i in range(n): #percorre cada linha 
-        for j in range(m): #percorre cada coluna 
+    for i in range(n_linhas): #percorre cada linha 
+        for j in range(n_colunas): #percorre cada coluna 
             C[i][j] = A[i][j] + B[i][j] #soma os elementos de A e B
     return C #retorna a matriz resultante 
 
@@ -192,12 +192,12 @@ def soma_matriz(A, B):
     
 def multiplica_k (A, k):
     
-    n = len(A) #numero de linhas 
-    m = len(A[0]) #nuemro de colunas 
-    C = cria_matriz(n, m)#cria a matriz
+    n_linhas = len(A) #numero de linhas 
+    n_colunas = len(A[0]) #nuemro de colunas 
+    C = cria_matriz(n_linhas, n_colunas)#cria a matriz
     
-    for i in range(n):
-        for j in range(m):
+    for i in range(n_linhas):
+        for j in range(n_colunas):
             C[i][j] = A[i][j] * k
     return C
 
@@ -220,6 +220,9 @@ def multiplica_matriz(A, B):
             for k in range(colunas_A):
                 C[i][j] += A[i][k] * B[k][j]
     return C
+
+
+
 
 #------------------- Questao 08 -------------------
 def relatorio(dados):
