@@ -222,5 +222,180 @@ def multiplica_matriz(A, B):
                 C[i][j] += A[i][k] * B[k][j]
     return C
 
+#------------------- Questao 08 -------------------
+# Função para calcular a média dos valores
+def calcular_media(valores):
+    # Soma todos os valores e divide pela quantidade
+    return sum(valores) / len(valores)
+
+# Função para analisar uma categoria específica
+def analisar_categoria(nome_categoria, dados_categoria):
+    print(f"\nCategoria: {nome_categoria}")
+
+    # Remove 'Brasil' se existir
+    dados = {estado: valor for estado, valor in dados_categoria.items() if estado != 'Brasil'}
+
+    # Estado com menor IPCA (usamos min com base nos valores)
+    estado_menor = min(dados, key=dados.get)
+    valor_menor = dados[estado_menor]
+
+    # Estado com maior IPCA
+    estado_maior = max(dados, key=dados.get)
+    valor_maior = dados[estado_maior]
+
+    # Calcula a média
+    media = calcular_media(list(dados.values()))
+
+    # Mostra os resultados
+    print(f"  a) Estado com menor IPCA: {estado_menor} ({valor_menor:.2f}%)")
+    print(f"  b) Estado com maior IPCA: {estado_maior} ({valor_maior:.2f}%)")
+    print(f"  c) Média do IPCA: {media:.2f}%")
+
+    # Retorna a média para ser usada depois
+    return media
+
+# Função principal para gerar o relatório completo
+def relatorio(dados_ipca):
+    # Dicionário para guardar a média de cada categoria
+    medias = {}
+
+    # Para cada categoria do IPCA
+    for categoria, dados in dados_ipca.items():
+        # Chama a função de análise e guarda a média
+        media = analisar_categoria(categoria, dados)
+        medias[categoria] = media
+
+    # Descobre a categoria com maior média
+    categoria_maior = max(medias, key=medias.get)
+    media_maior = medias[categoria_maior]
+
+    # Descobre a categoria com menor média
+    categoria_menor = min(medias, key=medias.get)
+    media_menor = medias[categoria_menor]
+
+    # Mostra o resumo final
+    print("\nResumo final:")
+    print(f"  d) Categoria com maior IPCA médio: {categoria_maior} ({media_maior:.2f}%)")
+    print(f"  e) Categoria com menor IPCA médio: {categoria_menor} ({media_menor:.2f}%)")
+
+# ==== Como usar a função ====
+
+# Aqui você coloca os dados conforme o enunciado da sua questão
+dados_ipca = {
+    'Índice geral': {
+        'Rio Branco': 0.55,
+        'São Luís': 0.45,
+        'Aracaju': 0.39,
+        'Campo Grande': 0.60,
+        'Goiânia': 0.14,
+        'Brasília': 0.40,
+        'Belém': 0.44,
+        'Fortaleza': 0.60,
+        'Recife': 0.22
+    },
+    'Alimentação e bebidas': {
+        'Rio Branco': 0.01,
+        'São Luís': 0.56,
+        'Aracaju': 1.38,
+        'Campo Grande': 0.83,
+        'Goiânia': 1.54,
+        'Brasília': 0.59,
+        'Belém': 0.59,
+        'Fortaleza': 0.55,
+        'Recife': 0.64
+    },
+    'Habitação': {
+        'Rio Branco': 0.21,
+        'São Luís': 0.61,
+        'Aracaju': 0.14,
+        'Campo Grande': 0.66,
+        'Goiânia': 0.15,
+        'Brasília': -0.17,
+        'Belém': -0.18,
+        'Fortaleza': 0.93,
+        'Recife': -0.30
+    },
+    'Artigos de residência': {
+        'Rio Branco': 0.31,
+        'São Luís': 0.41,
+        'Aracaju': 1.68,
+        'Campo Grande': 0.42,
+        'Goiânia': 0.12,
+        'Brasília': -0.35,
+        'Belém': 0.04,
+        'Fortaleza': 0.60,
+        'Recife': -0.06
+    },
+    'Vestuário': {
+        'Rio Branco': 0.51,
+        'São Luís': 0.24,
+        'Aracaju': 1.15,
+        'Campo Grande': 1.33,
+        'Goiânia': 0.27,
+        'Brasília': 0.33,
+        'Belém': 0.77,
+        'Fortaleza': 0.50,
+        'Recife': 0.57
+    },
+    'Transportes': {
+        'Rio Branco': -0.38,
+        'São Luís': 1.01,
+        'Aracaju': 1.20,
+        'Campo Grande': 0.95,
+        'Goiânia': 1.03,
+        'Brasília': -0.85,
+        'Belém': -1.45,
+        'Fortaleza': -0.20,
+        'Recife': -0.66
+    },
+    'Saúde e cuidados pessoais': {
+        'Rio Branco': 1.18,
+        'São Luís': 1.10,
+        'Aracaju': 0.79,
+        'Campo Grande': 1.02,
+        'Goiânia': 0.75,
+        'Brasília': 0.22,
+        'Belém': 0.88,
+        'Fortaleza': 1.35,
+        'Recife': 0.66
+    },
+    'Despesas pessoais': {
+        'Rio Branco': 0.54,
+        'São Luís': 0.15,
+        'Aracaju': 0.64,
+        'Campo Grande': 0.54,
+        'Goiânia': 0.29,
+        'Brasília': 0.64,
+        'Belém': 0.56,
+        'Fortaleza': 0.43,
+        'Recife': 0.54
+    },
+    'Educação': {
+        'Rio Branco': 0.05,
+        'São Luís': 0.04,
+        'Aracaju': 0.01,
+        'Campo Grande': 0.05,
+        'Goiânia': 0.01,
+        'Brasília': 0.05,
+        'Belém': 0.02,
+        'Fortaleza': 0.05,
+        'Recife': 0.01
+    },
+    'Comunicação': {
+        'Rio Branco': 0.16,
+        'São Luís': 1.05,
+        'Aracaju': 0.37,
+        'Campo Grande': 0.23,
+        'Goiânia': 0.24,
+        'Brasília': 0.16,
+        'Belém': 0.09,
+        'Fortaleza': 0.57,
+        'Recife': 0.54
+    }
+}
+
+# Chamando a função para gerar o relatório
+relatorio(dados_ipca)
+
 
 
