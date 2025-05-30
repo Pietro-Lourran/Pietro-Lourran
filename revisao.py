@@ -140,24 +140,14 @@ def maiores_que(lista, n):
 # ------------- Questao 06 -------------------1-
 '''Analisa a sequência de aminoácidos e retorna informações'''
 
-def relatorio (seq):
-    # Tamanho da lista 
+def relatorio(seq):
     tamanho = len(seq)
-
-    # Conta as LL
     ocorrencias_LL = seq.count('LL')
-
-    # Posições GG e RR
     posicoes_GG = [i for i in range(len(seq)-1) if seq[i:i+2] == 'GG']
     posicoes_RR = [i for i in range(len(seq)-1) if seq[i:i+2] == 'RR']
-
-    # contagem dos 100 primeiros aminoácidos
     primeiros_100 = seq[:100]
-
-    # Substitui SSSR por AAAA
     seq_substituida = seq.replace('SSSR', 'AAAA')
 
-    # Retornar tudo
     return {
         'tamanho': tamanho,
         'ocorrencias_LL': ocorrencias_LL,
@@ -167,15 +157,14 @@ def relatorio (seq):
         'sequencia_substituida': seq_substituida
     }
 
-# Sequência
-sequencia_amino = "VRSSSRTPSDKPVAHVVANPQAEGQLQWINRRANALLANGVELRDNQLVVPSEGLYLIYSQVLFKGQGCPSTHVLLTHTISRIAVSYQTKVNLLSAIKSPCQRETPEGAEAKPWYEPIYLGGVFQLEKGDRLSAEINRPDYLLFAESGQVYFGIIAL"
+# Programa interativo
+sequencia_amino = input("Digite a sequência de aminoácidos ou letras: ").strip().upper()
 
-# Usar a função
-result = relatorio (sequencia_amino)
+resultado = relatorio(sequencia_amino)
 
-# Mostra o resultado
-for k, v in result.items():
+for k, v in resultado.items():
     print(f"{k}: {v}")
+
 
 #--------------- Questao 07 ------------------
 
