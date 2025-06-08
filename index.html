@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Minha Empresa</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background: #f5f5f5;
+      color: #333;
+    }
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    header p {
+      margin: 5px 0 0;
+      font-size: 1.2em;
+      font-weight: 300;
+    }
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 6px;
+    }
+    section {
+      margin-bottom: 30px;
+    }
+    section h2 {
+      border-bottom: 2px solid #2980b9;
+      padding-bottom: 8px;
+      margin-bottom: 15px;
+      color: #2980b9;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    ul li {
+      padding: 8px 0;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    ul li:last-child {
+      border-bottom: none;
+    }
+    ul li img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 6px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #2c3e50;
+      color: white;
+      font-size: 0.9em;
+      margin-top: 50px;
+    }
+    a {
+      color: #2980b9;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    @media(max-width:600px) {
+      main {
+        margin: 20px;
+        padding: 15px;
+      }
+      header h1 {
+        font-size: 2em;
+      }
+      ul li {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      ul li img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Minha Empresa</h1>
+    <p>Soluções de qualidade para você</p>
+  </header>
+
+  <main>
+    <section id="servicos">
+      <h2>Serviços</h2>
+      <ul>
+        <li>
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=50&q=80" alt="Consultoria" />
+          Consultoria especializada
+        </li>
+        <li>
+          <img src="https://images.unsplash.com/photo-1556740764-3a9b0c345d3e?auto=format&fit=crop&w=50&q=80" alt="Atendimento" />
+          Atendimento personalizado
+        </li>
+        <li>
+          <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=50&q=80" alt="Suporte" />
+          Suporte técnico 24/7
+        </li>
+      </ul>
+    </section>
+
+    <section id="contato">
+      <h2>Contato</h2>
+      <p>Telefone: (11) 99999-9999</p>
+      <p>Email: contato@minhaempresa.com</p>
+      <p>Endereço: Rua Exemplo, 123, São Paulo - SP</p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Minha Empresa. Todos os direitos reservados.
+  </footer>
+
+</body>
+</html>
