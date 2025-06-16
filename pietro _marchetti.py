@@ -1,5 +1,9 @@
 #---------------- Questão 01 ----------------
+''' Cria uma classe que calcula a quantodade necessaria, 
+gastos, km percorridos, etc'''
+
 # Define a Classe 
+
 class Veiculo:
     # executa quando um novo carro é criado
     def __init__(self, economia, limiteTanque):
