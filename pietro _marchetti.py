@@ -73,3 +73,80 @@ def main():
 # Verifica se  está sendo executado diretamente 
 if __name__ == "__main__":
     main()
+
+#---------------- Questao 02 ----------------
+
+import math  # importa uma biblioteca para fazer cálculo de raiz quadrada
+
+# Classe Triangulo
+class Triangulo:
+    # cria um triângulo com os lados a, b e c
+    def __init__(self, a, b, c):
+        # Verifica se os lados formam um triângulo válido
+        if self.ehValido(a, b, c):
+            self.a = a
+            self.b = b
+            self.c = c
+        else:
+            print(" Os lados informados não formam um triângulo válido!")
+            self.a = self.b = self.c = 0  # Coloca tudo como zero se não for válido
+
+    # Verifica se o triângulo é válido
+    def ehValido(self, a, b, c):
+        # Um triângulo é válido se a soma de dois lados for maior que o terceiro
+        if a + b > c and a + c > b and b + c > a:
+            return True
+        else:
+            return False
+
+    # Tipo do triângulo
+    def tipoTriangulo(self):
+        if self.a == self.b == self.c:
+            return "Equilátero (3 lados iguais)"
+        elif self.a == self.b or self.b == self.c or self.a == self.c:
+            return "Isósceles (2 lados iguais)"
+        else:
+            return "Escaleno (3 lados diferentes)"
+
+    # Calculs o perímetro m
+    def calculaPerimetro(self):
+        return self.a + self.b + self.c
+
+    # Calcula a área usando a fórmula de Heron 
+    def calculaArea(self):
+        p = self.calculaPerimetro() / 2  # semiperímetro 
+        area = math.sqrt(p * (p - self.a) * (p - self.b) * (p - self.c))
+        return area
+
+# Testa a classe Triangulo
+def main():
+    #Triangulo equilatero
+    print("Triângulo #1:")
+    t1 = Triangulo(5, 5, 5)  
+    print("Tipo:", t1.tipoTriangulo())
+    print("Perímetro:", t1.calculaPerimetro())
+    print("Área:", round(t1.calculaArea(), 2))
+    print()
+#Triangulo  isósceles
+    print("Triângulo #2:")
+    t2 = Triangulo(6, 6, 4)  
+    print("Tipo:", t2.tipoTriangulo())
+    print("Perímetro:", t2.calculaPerimetro())
+    print("Área:", round(t2.calculaArea(), 2))
+    print()
+#Traingulo equilatero
+    print("Triângulo #3:")
+    t3 = Triangulo(7, 5, 6)  
+    print("Tipo:", t3.tipoTriangulo())
+    print("Perímetro:", t3.calculaPerimetro())
+    print("Área:", round(t3.calculaArea(), 2))
+    print()
+#Triangulo Invalido
+    print("Triângulo #4 (inválido):")
+    t4 = Triangulo(2, 2, 10)  
+    print("Tipo:", t4.tipoTriangulo())
+    print("Perímetro:", t4.calculaPerimetro())
+    print("Área:", round(t4.calculaArea(), 2))
+
+if __name__ == "__main__":
+    main()
