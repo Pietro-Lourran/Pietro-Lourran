@@ -75,8 +75,10 @@ if __name__ == "__main__":
     main()
 
 #---------------- Questao 02 ----------------
+''' Cria uma Classe para verificar os tipos de triangulos, 
+area , perimetro dos triangulos'''
 
-import math  # importa uma biblioteca para fazer cálculo de raiz quadrada
+import math 
 
 # Classe Triangulo
 class Triangulo:
