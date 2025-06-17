@@ -152,3 +152,38 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+#-------------- Questao 03 --------------
+
+import math
+# Define a classe que representa um ponto 
+class Ponto2D:
+    def __init__(self, x=0, y=0): #se nenhum valor for informado , o pontk esta na origem 
+        self.x = x
+        self.y = y
+# calcula a distância 
+    def distancia(self, outro):
+        dx = outro.x - self.x
+        dy = outro.y - self.y
+        return math.sqrt(dx**2 + dy**2)
+# retorna a representação do ponto 
+    def __str__(self):
+        return f"({self.x}, {self.y})"
+# testa a classe 
+def main():
+    print("== Distância entre os Pontos 2D ==")
+
+    p1 = Ponto2D()  # Origem
+    p2 = Ponto2D(3, 4)
+    p3 = Ponto2D(-1, -1)
+
+    print("Ponto A:", p1)
+    print("Ponto B:", p2)
+    print("Ponto C:", p3)
+
+    print(f"Distância de A até B: {p1.distancia(p2):.2f}")
+    print(f"Distância de B até C: {p2.distancia(p3):.2f}")
+# finaliza o programa 
+if __name__ == "__main__":
+    main()
+
