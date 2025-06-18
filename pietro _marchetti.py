@@ -294,3 +294,65 @@ print("\nPagamentos do mês:\n")
 for f in funcionarios:
     print(f"{f.get_nome()}: R$ {f.get_salario():.2f}")
 
+#--------------- Questao 5 -----------------
+
+
+# Classe representando um ponto
+class Ponto:
+    def __init__(self, x=0, y=0):
+        
+        self.x = x #coordenada x do ponto
+        self.y = y # coordenada y do ponto
+
+    # Imprime o ponto
+    def __str__(self):
+        return f"({self.x}, {self.y})"
+
+    # soma de dois pontos 
+    def __add__(self, outro):
+        return Ponto(self.x + outro.x, self.y + outro.y)
+
+    # Subtração de dois pontos 
+    def __sub__(self, outro):
+        return Ponto(self.x - outro.x, self.y - outro.y)
+
+    # Produto escalar entre dois pontos
+    def __mul__(self, outro):
+        if isinstance(outro, Ponto):
+            return self.x * outro.x + self.y * outro.y
+        else:
+            return NotImplemented
+
+    # Multiplicação de escalar por um ponto
+    def __rmul__(self, escalar):
+        return Ponto(escalar * self.x, escalar * self.y)
+
+    # Como usar 
+
+if __name__ == "__main__":
+    # Escolha os pontos 
+    p1 = Ponto(1, 3)
+    p2 = Ponto(2, 1)
+
+    # Imprime os pontos
+    print("P1 =", p1)          
+    print("P2 =", p2)           
+
+    # Soma dos pontos 
+    soma = p1 + p2
+    print("P1 + P2 =", soma)   
+
+    # Subtração dos pontos 
+    sub = p1 - p2
+    print("P1 - P2 =", sub)     
+
+    # Produto escalar 
+    produto = p1 * p2
+    print("P1 * P2 =", produto) 
+
+    # Escalar * ponto 
+    escalar = 3
+    multiplicado = escalar * p1
+    print(f"{escalar} * P1 =", multiplicado)  
+
+
