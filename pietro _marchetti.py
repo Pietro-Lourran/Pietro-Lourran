@@ -355,4 +355,83 @@ if __name__ == "__main__":
     multiplicado = escalar * p1
     print(f"{escalar} * P1 =", multiplicado)  
 
+#------------------- Questao 6 --------------
+
+class Relogio:
+    def __init__(self, h, m, s):
+        # Verifica se as horas são válidas
+        if 0 <= h < 24 and 0 <= m < 60 and 0 <= s < 60:
+            self.h = h
+            self.m = m
+            self.s = s
+        else:
+            print("Horario digitado invalido !")
+            self.h = self.m = self.s = None
+
+    def __str__(self):
+        # Retorna o horário
+        if self.h is None:
+            return "Horário inválido"
+        return f"{self.h:02}:{self.m:02}:{self.s:02}"
+
+    def total_segundos(self):
+        # Converte para segundos
+        return self.h * 3600 + self.m * 60 + self.s
+
+    def __add__(self, outro):
+        # Soma duas horas e retorna 
+        total = self.total_segundos() + outro.total_segundos()
+        h = (total // 3600) % 24
+        m = (total % 3600) // 60
+        s = total % 60
+        return Relogio(h, m, s)
+
+    def __sub__(self, outro):
+        # Subtrai dois horários se o primeiro for maior ou igual
+        if self.total_segundos() < outro.total_segundos():
+            print("O primeiro horario dever ser maior ou igual ao segundo")
+            return None
+        total = self.total_segundos() - outro.total_segundos()
+        h = total // 3600
+        m = (total % 3600) // 60
+        s = total % 60
+        return Relogio(h, m, s)
+
+    def __eq__(self, outro):
+        # confere se dois horários são iguais ou nao 
+        return self.total_segundos() == outro.total_segundos()
+
+    def __lt__(self, outro):
+        # confere se este horário é menor que o outro
+        return self.total_segundos() < outro.total_segundos()
+
+    def __gt__(self, outro):
+        # confere se este horário é maior que o outro
+        return self.total_segundos() > outro.total_segundos()
+# como usar (exemplo)
+
+r0 = Relogio(12, 65, 54)  # Inválido
+r1 = Relogio(17, 30, 28)
+r2 = Relogio(20, 0, 30)
+
+print(r1)          
+print(r2)          
+
+r3 = r1 + r2
+print(r3)          
+
+r4 = r3 - r2       
+print(r4)          
+
+r5 = r2 - r3       
+print(r5)          
+
+print(r1 == r2)    
+r6 = Relogio(18, 37, 32)
+print(r1 == r6)    
+
+print(r1 > r3)    
+print(r2 < r3)     
+print(r2 > r3)     
+print(r2 < r3)     
 
