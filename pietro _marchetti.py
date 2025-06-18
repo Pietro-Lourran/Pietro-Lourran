@@ -186,4 +186,111 @@ def main():
 # finaliza o programa 
 if __name__ == "__main__":
     main()
+#----------------- Questao 4 ----------------
+''' Cria uma classe Funcionario com os atributos privados nome, 
+cpf e salario; e um construtor que deve receber como parâmetro nome e cpf. Todos os atributos devem ter propriedades (getters) definidos.'''
+
+# Classe que representa um funcionário aleatorio
+class Funcionario:
+    def __init__(self, nome, cpf):
+        
+        self.__nome = nome
+        self.__cpf = cpf
+        self.__salario = 0.0  # Salário inicia em zero reais
+
+    # Nome
+    def get_nome(self):
+        return self.__nome
+
+    # CPF
+    def get_cpf(self):
+        return self.__cpf
+
+    # Salário
+    def get_salario(self):
+        return self.__salario
+
+    # para o salário (método usado pelas classes filhas)
+    def set_salario(self, valor):
+        self.__salario = valor
+
+
+# salário fixo
+class TrabalhadorAssalariado(Funcionario):
+    # definine o salário mensal
+    def definir_salario(self, salario):
+        if salario > 0:
+            self.set_salario(salario)  # Usa o método da classe mãe
+        else:
+            print(f"Salário inválido para {self.get_nome()}.")
+
+
+# trabalhadores que recebem por hora
+class TrabalhadorHorista(Funcionario):
+    def __init__(self, nome, cpf):
+        super().__init__(nome, cpf)  # Chama o construtor da classe mãe
+        self.__valor_hora = None
+        self.__horas_mes = None
+
+    # para o valor da hora trabalhada 
+    def set_valor_hora(self, valor):
+        if valor > 0:
+            self.__valor_hora = valor
+        else:
+            print(f"Valor da hora inválido para {self.get_nome()}.")
+
+    # número de horas trabalhadas no mês
+    def set_horas_mes(self, horas):
+        if horas >= 0:
+            self.__horas_mes = horas
+        else:
+            print(f"Horas trabalhadas inválidas para {self.get_nome()}.")
+
+    # calcula o salário 
+    def calcular_pagamento(self):
+        if self.__valor_hora is None or self.__horas_mes is None:
+            print(f"Dados incompletos para {self.get_nome()}.")
+        else:
+            salario = self.__valor_hora * self.__horas_mes
+            self.set_salario(salario)  # Salva o valor calculado
+
+# Lista que guarda os funcionários
+funcionarios = []
+
+# três trabalhadores assalariados
+a1 = TrabalhadorAssalariado("Pedro", "12345678900")
+a1.definir_salario(3000)
+funcionarios.append(a1)
+
+a2 = TrabalhadorAssalariado("Julia", "23456789011")
+a2.definir_salario(4200)
+funcionarios.append(a2)
+
+a3 = TrabalhadorAssalariado("Rafael", "34567890122")
+a3.definir_salario(3800)
+funcionarios.append(a3)
+
+# três trabalhadores horistas
+h1 = TrabalhadorHorista("Lucas", "45678901233")
+h1.set_valor_hora(50)
+h1.set_horas_mes(160)
+h1.calcular_pagamento()
+funcionarios.append(h1)
+
+h2 = TrabalhadorHorista("Beatriz", "56789012344")
+h2.set_valor_hora(40)
+h2.set_horas_mes(150)
+h2.calcular_pagamento()
+funcionarios.append(h2)
+
+h3 = TrabalhadorHorista("Amanda", "67890123455")
+h3.set_valor_hora(60)
+h3.set_horas_mes(140)
+h3.calcular_pagamento()
+funcionarios.append(h3)
+
+# Imprime os pagamentos de todos os funcionários
+print("\nPagamentos do mês:\n")
+for f in funcionarios:
+    print(f"{f.get_nome()}: R$ {f.get_salario():.2f}")
 
