@@ -295,7 +295,8 @@ for f in funcionarios:
     print(f"{f.get_nome()}: R$ {f.get_salario():.2f}")
 
 #--------------- Questao 5 -----------------
-
+''' imprime pontos escolhidos, a soma dos pontos, a subtração 
+multiplicação e a multiplicação por um escalar '''
 
 # Classe representando um ponto
 class Ponto:
@@ -356,7 +357,8 @@ if __name__ == "__main__":
     print(f"{escalar} * P1 =", multiplicado)  
 
 #------------------- Questao 6 --------------
-
+''' Imprime um horario em HH:MM:SS e mensagens de aviso caso valores sejam inválidos 
+para a hora , minutos e segundo'''
 class Relogio:
     def __init__(self, h, m, s):
         # Verifica se as horas são válidas
@@ -434,4 +436,112 @@ print(r1 > r3)
 print(r2 < r3)     
 print(r2 > r3)     
 print(r2 < r3)     
+
+
+#---------------- Questao 07 ---------------
+''' Armazena dados de alunos e professores e calcula as medias dos alunos'
+# Classe básica que representa uma pessoa
+class Pessoa:
+    def __init__(self, nome, cpf):
+        self.nome = nome
+        self.cpf = cpf
+
+# Guarda 3 notas e calcula a média
+class Notas:
+    def __init__(self, n1, n2, n3):
+        self.n1 = n1
+        self.n2 = n2
+        self.n3 = n3
+
+    def calcular_media(self):
+        return (self.n1 + self.n2 + self.n3) / 3
+
+# Matrícula e notas
+class Aluno(Pessoa):
+    def __init__(self, nome, cpf, matricula, notas):
+        super().__init__(nome, cpf)  # chamada da classe Pessoa
+        self.matricula = matricula
+        self.notas = notas
+
+    def mostrar_media(self):
+        media = self.notas.calcular_media()
+        print(f"Média de {self.nome}: {media:.2f}")
+
+# Classe Professor e Pessoa e salário
+class Professor(Pessoa):
+    def __init__(self, nome, cpf, salario):
+        super().__init__(nome, cpf)
+        self.salario = salario
+
+    def mostrar_salario(self):
+        print(f"Salário de {self.nome}: R$ {self.salario:.2f}")
+
+# Professor Horista herda de Professor e calcula o salário 
+class ProfessorHorista(Professor):
+    def __init__(self, nome, cpf, horas, valor_hora):
+        salario = horas * valor_hora
+        super().__init__(nome, cpf, salario)
+
+# Controla listas de alunos e professores
+class Controlador:
+    def __init__(self):
+        self.alunos = []
+        self.professores = []
+
+    def adicionar_aluno(self, aluno):
+        self.alunos.append(aluno)
+
+    def adicionar_professor(self, professor):
+        self.professores.append(professor)
+
+    def buscar_aluno_por_nome(self, nome):
+        for aluno in self.alunos:
+            if aluno.nome == nome:
+                return aluno
+        return None
+
+    def buscar_professor_por_nome(self, nome):
+        for professor in self.professores:
+            if professor.nome == nome:
+                return professor
+        return None
+
+# Teste
+if __name__ == "__main__":
+    # Alunos com notas
+    a1 = Aluno("Vinicius", "12345678901", "A1", Notas(8, 7, 9))
+    a2 = Aluno("Roberto", "23456789012", "A2", Notas(6, 5, 7))
+    a3 = Aluno("Ana", "34567890123", "A3", Notas(9, 10, 10))
+
+    # Professores
+    p1 = Professor("Carlos Eduardo", "45678901234", 4000)
+    p2 = Professor("Dalva", "56789012345", 5000)
+    p3 = ProfessorHorista("Junior", "67890123456", 20, 100)  # 20 horas × R$100
+
+    # Controlador
+    sistema = Controlador()
+    sistema.adicionar_aluno(a1)
+    sistema.adicionar_aluno(a2)
+    sistema.adicionar_aluno(a3)
+
+    sistema.adicionar_professor(p1)
+    sistema.adicionar_professor(p2)
+    sistema.adicionar_professor(p3)
+
+    # Mostra média dos alunos
+    for nome in ["Vinicius", "Roberto", "Ana"]:
+        aluno = sistema.buscar_aluno_por_nome(nome)
+        if aluno:
+            aluno.mostrar_media()
+
+    # Mostra o salário dos professores
+    for nome in ["Carlos Eduardo", "Dalva", "Junior"]:
+        professor = sistema.buscar_professor_por_nome(nome)
+        if professor:
+            professor.mostrar_salario()
+
+
+
+
+
 
