@@ -1,3 +1,5 @@
+# Autor : Pietro Marchetti
+
 ''' imprime pontos escolhidos, a soma dos pontos, a subtração 
 multiplicação e a multiplicação por um escalar '''
 
