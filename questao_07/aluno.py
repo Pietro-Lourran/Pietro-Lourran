@@ -1,3 +1,5 @@
+# Autor : Pietro Marchetti
+
 # Matrícula e notas
 class Aluno(Pessoa):
     def __init__(self, nome, cpf, matricula, notas):
