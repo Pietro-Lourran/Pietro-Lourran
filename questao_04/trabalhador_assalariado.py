@@ -1,3 +1,6 @@
+# Autor : Pietro Marchetti
+
+
 # salário fixo
 class TrabalhadorAssalariado(Funcionario):
     # definine o salário mensal
