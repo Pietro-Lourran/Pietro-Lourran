@@ -4,3 +4,6 @@ class Notas:
         self.n1 = n1
         self.n2 = n2
         self.n3 = n3
+
+    def calcular_media(self):
+        return (self.n1 + self.n2 + self.n3) / 3
