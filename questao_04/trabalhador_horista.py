@@ -1,3 +1,5 @@
+# Autor : Pietro Marchetti
+
 # trabalhadores que recebem por hora
 class TrabalhadorHorista(Funcionario):
     def __init__(self, nome, cpf):
