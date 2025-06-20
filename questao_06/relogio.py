@@ -1,3 +1,5 @@
+# Autor : Pietro Marchetti
+
 ''' Imprime um horario em HH:MM:SS e mensagens de aviso caso valores sejam inválidos 
 para a hora , minutos e segundo'''
 class Relogio:
