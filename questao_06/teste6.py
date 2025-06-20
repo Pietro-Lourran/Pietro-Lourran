@@ -1,3 +1,6 @@
+
+# Autor : Pietro Marchetti
+
 r0 = Relogio(12, 65, 54)  # Inválido
 r1 = Relogio(17, 30, 28)
 r2 = Relogio(20, 0, 30)
