@@ -1,3 +1,5 @@
+# Autor : Pietro Marchetti
+
 ''' Cria uma classe Funcionario com os atributos privados nome, 
 cpf e salario; e um construtor que deve receber como parâmetro nome e cpf. Todos os atributos devem ter propriedades (getters) definidos.'''
 
