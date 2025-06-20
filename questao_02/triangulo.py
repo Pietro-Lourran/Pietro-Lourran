@@ -1,3 +1,5 @@
+# Autor : Pietro Marchetti
+
 ''' Cria uma Classe para verificar os tipos de triangulos, 
 area , perimetro dos triangulos'''
 
