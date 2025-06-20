@@ -1,3 +1,5 @@
+# Autor : Pietro Marchetti
+
 # Teste
 if __name__ == "__main__":
     # Alunos com notas
