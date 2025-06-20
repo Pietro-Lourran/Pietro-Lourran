@@ -1,3 +1,5 @@
+# Autor : Pietro Marchetti
+
 # Controla listas de alunos e professores
 class Controlador:
     def __init__(self):
