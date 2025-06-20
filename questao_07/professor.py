@@ -1,3 +1,5 @@
+# Autor : Pietro Marchetti
+
 # Classe Professor e Pessoa e salário
 class Professor(Pessoa):
     def __init__(self, nome, cpf, salario):
