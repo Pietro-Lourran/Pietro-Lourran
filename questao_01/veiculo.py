@@ -1,3 +1,6 @@
+# Autor : Pietro Marchetti
+
+
 #---------------- Questão 01 ----------------
 ''' Cria uma classe que calcula a quantodade necessaria, 
 gastos, km percorridos, etc'''
