@@ -1,3 +1,6 @@
+
+# Autor : Pietro Marchetti
+
 # Lista que guarda os funcionários
 funcionarios = []
 
