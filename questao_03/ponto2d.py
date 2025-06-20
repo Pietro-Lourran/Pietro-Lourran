@@ -1,3 +1,5 @@
+# Autor : Pietro Marchetti
+
 import math
 # Define a classe que representa um ponto 
 class Ponto2D:
