@@ -1,3 +1,5 @@
+# Autor : Pietro Marchetti
+
 # testa a classe 
 def main():
     print("== Distância entre os Pontos 2D ==")
