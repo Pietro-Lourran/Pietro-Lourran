@@ -1,3 +1,5 @@
+# Autor : Pietro Marchetti
+
 # Testa a classe Triangulo
 def main():
     #Triangulo equilatero
