@@ -1,3 +1,5 @@
+# Autor : Pietro Marchetti
+
 if __name__ == "__main__":
     # Escolha os pontos 
     p1 = Ponto(1, 3)
